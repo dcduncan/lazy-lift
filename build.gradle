@@ -1,9 +1,31 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath 'com.github.node-gradle:gradle-node-plugin:3.0.0-rc7'
+    }
+}
+
 plugins {
+    id 'com.github.node-gradle.node' version '3.0.0-rc7'
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
 }
 
 group 'com.dj'
 version '1.0-SNAPSHOT'
+
+apply plugin: 'com.github.node-gradle.node'
+
+node {
+    nodeProjectDir = file("${project.projectDir}/src/main/ui")
+}
+
+task copyReactApp(type: Copy) {
+    from file("${project.projectDir}/src/main/ui/build")
+    into file("${project.projectDir}/src/main/resources/static/build")
+}
 
 repositories {
     mavenCentral()
@@ -11,5 +33,5 @@ repositories {
 
 dependencies {
     compile 'io.javalin:javalin:3.13.3'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
 }

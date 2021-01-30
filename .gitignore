@@ -221,4 +221,6 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
+src/main/resources/static/build/**
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij,kotlin,java,react,git,macos
