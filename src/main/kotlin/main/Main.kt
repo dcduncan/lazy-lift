@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
             .addStaticFiles("/static/build")
             .addStaticFiles("/")
             .addSinglePageRoot("/", "/static/build/index.html")
-    }.start(7000)
+    }.start(8080)
 
     app.get("/api/routines") { ctx -> ctx.result(arrayListOf("Legs", "Arms", "Abs").toString())}
 }
