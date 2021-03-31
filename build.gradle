@@ -11,6 +11,7 @@ buildscript {
 plugins {
     id 'com.github.node-gradle.node' version '3.0.0-rc7'
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'application'
 }
 
 group 'com.dj'
@@ -22,10 +23,16 @@ node {
     nodeProjectDir = file("${project.projectDir}/src/main/ui")
 }
 
+application {
+    mainClass = 'main.MainKt'
+}
+
 task copyReactApp(type: Copy) {
     from file("${project.projectDir}/src/main/ui/build")
     into file("${project.projectDir}/src/main/resources/static/build")
 }
+
+task stage(dependsOn: ['test', 'copyReactApp', 'build'])
 
 repositories {
     mavenCentral()
