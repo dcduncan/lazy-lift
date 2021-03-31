@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - openjdk15
+before_install:
+  - chmod +x gradlew
+  - chmod +x gradle/wrapper/gradle-wrapper.jar
+script:
+  - ./gradlew test npm_build copyReactApp build
