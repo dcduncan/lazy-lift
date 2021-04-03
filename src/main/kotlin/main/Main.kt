@@ -6,7 +6,6 @@ fun main(args: Array<String>) {
     val app = Javalin.create { config ->
         config
             .addStaticFiles("/static/build")
-            .addStaticFiles("/")
             .addSinglePageRoot("/", "/static/build/index.html")
     }.start(8080)
 

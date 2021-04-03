@@ -30,6 +30,18 @@ application {
     mainClass = 'main.MainKt'
 }
 
+jar {
+    archiveFileName = 'lazy-lift.jar'
+    manifest {
+        attributes(
+                'Main-Class': 'main.MainKt'
+        )
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 task copyReactApp(type: Copy) {
     from file("${project.projectDir}/src/main/ui/build")
     into file("${project.projectDir}/src/main/resources/static/build")
