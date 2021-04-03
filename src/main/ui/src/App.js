@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-const axios = require('axios');
+import FetchRoutinesButton from './FetchRoutinesButton'
 
 function App() {
   const [routines, setRoutines] = useState('');
-  axios.get('/api/routines').then(response => setRoutines(response.data));
   return (
     <div className="App">
       <header className="App-header">
@@ -21,10 +20,15 @@ function App() {
         >
           Learn React
         </a>
-        <p>
-        Routines: {routines}
-        <div></div>
-        </p>
+        {
+            routines === ''
+            ? <FetchRoutinesButton onClick={setRoutines} text="Fetch Routines"/>
+            :
+                <p>
+                    Routines: {routines}
+                    <div></div>
+                </p>
+        }
       </header>
     </div>
   );
