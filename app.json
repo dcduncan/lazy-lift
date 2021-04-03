@@ -1,0 +1,13 @@
+{
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/java"
+    },
+    {
+      "url": "heroku/gradle"
+    }
+  ]
+}
