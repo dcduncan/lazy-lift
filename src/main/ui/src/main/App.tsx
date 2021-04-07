@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import logo from '../logo.svg';
 import './App.css';
+import CreateRoutine from './CreateRoutine';
 import FetchRoutinesButton from './FetchRoutinesButton'
 
 function App() {
@@ -20,14 +21,15 @@ function App() {
         >
           Learn React
         </a>
+        <CreateRoutine />
         {
-            routines === ''
-            ? <FetchRoutinesButton onClick={setRoutines} text="Fetch Routines"/>
+          routines === ''
+            ? <FetchRoutinesButton onClick={setRoutines} text="Fetch Routines" />
             :
-                <p>
-                    Routines: {routines}
-                    <div></div>
-                </p>
+            <p>
+              Routines: {routines}
+              <div></div>
+            </p>
         }
       </header>
     </div>
