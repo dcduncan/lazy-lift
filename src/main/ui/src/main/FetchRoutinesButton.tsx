@@ -1,8 +1,7 @@
-import { MouseEventHandler } from 'react'
 import axios from 'axios';
 
 type Props = {
-  onClick: MouseEventHandler,
+  onClick: (data: string) => void,
   text: string,
 }
 
